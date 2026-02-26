@@ -13,11 +13,8 @@ with open('awards.json', encoding='utf-8') as f:
 # Код для чтения лауреатов из файла
 with open('laureats.json', encoding='utf-8') as f:
     laureats = json.load(f)
-i = 0
-laureats_id = {}
-for laureat in laureats:
-    laureats_id[laureat['id']] = i
-    i += 1
+
+laureats_id = {v['id']: k for k, v in enumerate(laureats)}
 
 
 @app.route("/api/v1/awards/")
